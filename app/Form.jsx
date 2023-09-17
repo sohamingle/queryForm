@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const QueryForm = () => {
+  const [disable,setDisable] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -25,11 +26,12 @@ const QueryForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+    setDisable(true);
     axios.post("https://query-form-rho.vercel.app/api/querySubmit", formData)
         .then((response) => {
             console.log('Form data submitted successfully:', response.data);
             toast.success('Query Submitted')
+            setDisable(false)
             setFormData({
             name: '',
             phone: '',
@@ -43,8 +45,8 @@ const QueryForm = () => {
       .catch((error) => {
         console.error('Error submitting form data:', error);
         toast.error('Something went wrong')
+        setDisable(false);
       })
-
   };
 
   return (
@@ -147,7 +149,7 @@ const QueryForm = () => {
           className="textarea border-slate-950 w-full resize-none max-w-lg mb-3"
           rows={5}
         />
-        <button type="submit" className="btn btn-neutral active:btn">
+        <button type="submit" disabled={disable} className="btn btn-neutral active:btn">
           Submit
         </button>
       </form>
