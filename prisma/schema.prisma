@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -19,5 +19,5 @@ model Query {
   location   String
   department String
   message    String
-  createdAt  DateTime @default(now())
+  createdAt  String
 }

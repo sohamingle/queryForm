@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Data" ALTER COLUMN "createdAt" SET DATA TYPE TEXT;

@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "Query" ALTER COLUMN "createdAt" SET DATA TYPE TIMESTAMP;
