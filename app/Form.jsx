@@ -48,7 +48,7 @@ const QueryForm = () => {
   };
 
   return (
-    <main className="h-screen flex flex-col justify-center items-center p-3">
+    <main className="h-screen flex flex-col justify-center items-center md:p-3">
         <ToastContainer/>
       <form onSubmit={handleSubmit} className="flex flex-col max-w-xs h-screen lg:max-w-lg md:max-w-md:flex sm:max-w-sm bg-white p-7 rounded-2xl">
         <div className="flex flex-row h-16 items-center font-arial text-xl text-black w-full">
