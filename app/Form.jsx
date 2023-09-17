@@ -26,7 +26,7 @@ const QueryForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    axios.post("http://localhost:3000/api/querySubmit", formData)
+    axios.post("https://query-form-rho.vercel.app/api/querySubmit", formData)
         .then((response) => {
             console.log('Form data submitted successfully:', response.data);
             toast.success('Query Submitted')
