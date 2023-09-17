@@ -48,9 +48,9 @@ const QueryForm = () => {
   };
 
   return (
-    <main className="h-screen flex flex-col justify-center items-center">
+    <main className="h-screen flex flex-col justify-center items-center p-3">
         <ToastContainer/>
-      <form onSubmit={handleSubmit} className="flex flex-col lg:max-w-lg md:max-w-md:flex sm:max-w-xs bg-white p-7 rounded-2xl">
+      <form onSubmit={handleSubmit} className="flex flex-col max-w-xs h-screen lg:max-w-lg md:max-w-md:flex sm:max-w-sm bg-white p-7 rounded-2xl">
         <div className="flex flex-row h-16 items-center font-arial text-xl text-black w-full">
             <Image src={doc} alt="doc.png" width={20} className="object-contain mx-2 h-auto"/>
             <div>
