@@ -1,6 +1,5 @@
 "use client"
 
-import prisma from "@/prisma/client";
 import axios from "axios";
 import { useEffect,useState } from "react";
 
@@ -72,15 +71,3 @@ const QueryTable = () => {
 };
 
 export default QueryTable;
-
-
-export async function getServerSideProps(ctx){
-
-    const queries = await prisma.query.findMany()
-
-    return {
-        props:{
-            queries:queries
-        }
-    }
-}
