@@ -17,6 +17,7 @@ const QueryForm = () => {
     location: "",
     department: "",
     message: "",
+    resolved:"Unresolved"
   });
 
   const handleChange = (e) => {
@@ -27,7 +28,7 @@ const QueryForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setDisable(true);
-    axios.post("https://query-form-rho.vercel.app/api/querySubmit", formData)
+    axios.post("/api/querySubmit", formData)
         .then((response) => {
             console.log('Form data submitted successfully:', response.data);
             toast.success('Query Submitted')
@@ -39,7 +40,8 @@ const QueryForm = () => {
             employeeId: '',
             location: '',
             department: '',
-            message: ''
+            message: '',
+            resolved:"Not Resolved",
         });
       })
       .catch((error) => {

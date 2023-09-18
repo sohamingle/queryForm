@@ -18,8 +18,22 @@ export async function POST(req){
             location: query.location,
             department: query.department,
             message: query.message,
-            createdAt: timestamp
+            createdAt: timestamp,
+            resolved: query.resolved
         }
     })
     return NextResponse.json({message:createdQuery},{status:201})
+}
+
+export async function PUT(req){
+    const id = await req.json()
+    const toggleResolved = await prisma.query.update({
+        where:{
+            id:id
+        },
+        data:{
+            resolved:"Resolved"
+        }
+        })
+    return NextResponse.json({message:toggleResolved},{status:201})
 }

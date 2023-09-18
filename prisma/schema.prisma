@@ -20,4 +20,5 @@ model Query {
   department String
   message    String
   createdAt  String
+  resolved   String   
 }
