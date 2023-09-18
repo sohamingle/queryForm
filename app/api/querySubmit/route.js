@@ -37,3 +37,8 @@ export async function PUT(req){
         })
     return NextResponse.json({message:toggleResolved},{status:201})
 }
+
+export async function GET(req){
+    const queries = await prisma.query.findMany()
+    return NextResponse.json(queries)
+}
