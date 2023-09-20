@@ -17,6 +17,8 @@ export async function POST(req){
             employeeId: query.employeeId,
             location: query.location,
             department: query.department,
+            field:query.field,
+            device:query.device,
             message: query.message,
             createdAt: timestamp,
             resolved: query.resolved

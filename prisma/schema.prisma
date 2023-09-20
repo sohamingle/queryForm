@@ -11,14 +11,16 @@ datasource db {
 }
 
 model Query {
-  id         Int      @id @default(autoincrement())
+  id         Int     @id @default(autoincrement())
   name       String
   phone      String?
   email      String
   employeeId String?
   location   String
   department String
+  field      String
+  device     String
   message    String
   createdAt  String
-  resolved   String   
+  resolved   String
 }

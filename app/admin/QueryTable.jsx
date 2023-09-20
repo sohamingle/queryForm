@@ -57,6 +57,8 @@ const QueryTable = () => {
               <th>Employee ID</th>
               <th>Location</th>
               <th>Department</th>
+              <th>Field</th>
+              <th>Device</th>
               <th>Message</th>
               <th>Created At</th>
               <th>Resolved</th>
@@ -73,6 +75,8 @@ const QueryTable = () => {
               <td>{query.employeeId}</td>
               <td>{query.location}</td>
               <td>{query.department}</td>
+              <td>{query.field}</td>
+              <td>{query.device}</td>
               <td>{query.message}</td>
               <td>{query.createdAt}</td>
               <td>{query.resolved}</td>
