@@ -1,7 +1,7 @@
 "use client"
 
 import axios from "axios";
-import { useEffect,useId,useState } from "react";
+import { useEffect,useState } from "react";
 import CustomInput from "./CustomInput";
 
 const QueryTable = () => {
