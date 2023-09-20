@@ -161,12 +161,8 @@ const QueryForm = () => {
                 className="select border-black w-full max-w-lg"
                 >
                 <option value="" disabled>Select Device</option>
-                <option value='Mumbai'>Mumbai</option>
-                <option value='Pune'>Pune</option>
-                <option value='Banglore'>Banglore</option>
-                <option value='Dehli'>Dehli</option>
-                <option value='Ahmedabad'>Ahmedabad</option>
-                <option value='Hyderabad'>Hyderabad</option>
+                <option value='Laptop'>Laptop</option>
+                <option value='Dekstop'>Dekstop</option>
                 </select>
             </div>
             <div className="flex-col">
