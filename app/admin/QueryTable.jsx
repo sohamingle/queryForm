@@ -2,12 +2,12 @@
 
 import axios from "axios";
 import { useEffect,useId,useState } from "react";
+import CustomInput from "./CustomInput";
 
 const QueryTable = () => {
     const [queries, setQueries] = useState([]);
     const [disable,setDisable] = useState(false)
-    const [name,setName]=useState("")
-    const inputId=useId()
+    const [nameInputs, setNameInputs] = useState({});
 
     useEffect(() => {
       const fetchData = async () => {
@@ -23,18 +23,23 @@ const QueryTable = () => {
       fetchData();
     }, [queries]);
 
-    function handleChange(e){
-      setName(e.target.value)
+    function handleChange(e, id) {
+      const { value } = e.target;
+      setNameInputs((prevInputs) => ({
+        ...prevInputs,
+        [id]: value,
+      }));
     }
 
-    function handleResolve(id){
-      setDisable(true)
-      try{
-        axios.put("/api/querySubmit", {id:id,name:name})
-      }catch(error){
-        console.log(error)
-      }finally{
-        setDisable(false)
+    function handleResolve(id) {
+      setDisable(true);
+      try {
+        const nameForQuery = nameInputs[id];
+        axios.put("/api/querySubmit", { id: id, name: nameForQuery });
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setDisable(false);
       }
     }
 
@@ -71,12 +76,15 @@ const QueryTable = () => {
               <td>{query.message}</td>
               <td>{query.createdAt}</td>
               <td>{query.resolved}</td>
-              {query.resolved ==="Unresolved" && <td>
-                  <input id={inputId} name="name" placeholder="Name" onChange={handleChange} className="input border-black mr-4" required/>
-                  <button className="btn btn-primary" id={inputId} disabled={disable || name === "" } onClick={()=>handleResolve(query.id)}>
-                    Resolve
-                  </button>
-                </td>}
+              {query.resolved ==="Unresolved" && <CustomInput
+                    id={query.id}
+                    value={nameInputs[query.id] || ''}
+                    onChange={(e) => handleChange(e, query.id)}
+                    placeholder="Name"
+                    disabled= {disable}
+                    handleResolve={handleResolve}
+                  />
+                  }
             </tr>)}
           </tbody>
         </table>
