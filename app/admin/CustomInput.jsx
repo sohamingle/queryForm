@@ -2,7 +2,7 @@ import React from 'react';
 
 const CustomInput = ({ id, value, onChange, placeholder, disabled, handleResolve }) => {
   return (
-    <td>
+    <td className='border-2 border-black'>
       <input
         id={id}
         name="name"

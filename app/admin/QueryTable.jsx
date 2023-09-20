@@ -47,7 +47,7 @@ const QueryTable = () => {
     <div className= "m-6 flex flex-col justify-center">
         <h3 className="mb-5 text-3xl">Query Table</h3>
       <div className="overflow-x-auto">
-        <table className="table table-xs bg-white">
+        <table className="table table-xs bg-white border-2 border-black">
           <thead className="bg-black text-white">
             <tr>
               <th>Id</th>
@@ -68,18 +68,18 @@ const QueryTable = () => {
           <tbody>
             {queries.map(query => 
             <tr key={query.id}>
-              <th>{query.id}</th>
-              <td>{query.name}</td>
-              <td>{query.phone}</td>
-              <td>{query.email}</td>
-              <td>{query.employeeId}</td>
-              <td>{query.location}</td>
-              <td>{query.department}</td>
-              <td>{query.field}</td>
-              <td>{query.device}</td>
-              <td>{query.message}</td>
-              <td>{query.createdAt}</td>
-              <td>{query.resolved}</td>
+              <th className="border-b-2 border-black">{query.id}</th>
+              <td className="border-2 border-black">{query.name}</td>
+              <td className="border-2 border-black">{query.phone}</td>
+              <td className="border-2 border-black">{query.email}</td>
+              <td className="border-2 border-black">{query.employeeId}</td>
+              <td className="border-2 border-black">{query.location}</td>
+              <td className="border-2 border-black">{query.department}</td>
+              <td className="border-2 border-black">{query.field}</td>
+              <td className="border-2 border-black">{query.device}</td>
+              <td className="border-2 border-black">{query.message}</td>
+              <td className="border-2 border-black">{query.createdAt}</td>
+              <td className="border-2 border-black">{query.resolved}</td>
               {query.resolved ==="Unresolved" && <CustomInput
                     id={query.id}
                     value={nameInputs[query.id] || ''}
