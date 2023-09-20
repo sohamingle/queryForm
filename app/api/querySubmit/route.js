@@ -26,13 +26,19 @@ export async function POST(req){
 }
 
 export async function PUT(req){
-    const id = await req.json()
+    const data = await req.json()
+    const time = new Date()
+    const timestamp = new Intl.DateTimeFormat("en-us",{
+        dateStyle:"short",
+        timeStyle:"short",
+        timeZone:"Asia/Kolkata"
+    }).format(time)
     const toggleResolved = await prisma.query.update({
         where:{
-            id:id
+            id:data.id
         },
         data:{
-            resolved:"Resolved"
+            resolved:`Resolved by ${data.name} at ${timestamp}`
         }
         })
     return NextResponse.json({message:toggleResolved},{status:201})

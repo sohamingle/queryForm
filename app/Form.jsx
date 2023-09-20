@@ -41,7 +41,7 @@ const QueryForm = () => {
             location: '',
             department: '',
             message: '',
-            resolved:"Not Resolved",
+            resolved:"Unresolved",
         });
       })
       .catch((error) => {
@@ -116,9 +116,12 @@ const QueryForm = () => {
                 className="select border-black w-full max-w-lg"
                 >
                 <option value="" disabled>Select City</option>
-                <option value='Banglore'>Banglore</option>
                 <option value='Mumbai'>Mumbai</option>
-                <option value='Dehradun'>Dehradun</option>
+                <option value='Pune'>Pune</option>
+                <option value='Banglore'>Banglore</option>
+                <option value='Dehli'>Dehli</option>
+                <option value='Ahmedabad'>Ahmedabad</option>
+                <option value='Hyderabad'>Hyderabad</option>
                 </select>
             </div>
             <div className="flex-col">
@@ -135,8 +138,10 @@ const QueryForm = () => {
                 <option value="" disabled>Select Department</option>
                 <option value='IT'>IT</option>
                 <option value='Sales'>Sales</option>
-                <option value='Accounting'>Accounting</option>
-                <option value='Hardware'>Hardware</option>
+                <option value='Production'>Production</option>
+                <option value='Store & Logistics'>Store & Logistics</option>
+                <option value='HR & Admin'>HR & Admin</option>
+                <option value='Finance'>Finance</option>
                 </select>
             </div>
         </div>

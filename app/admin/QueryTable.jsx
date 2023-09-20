@@ -1,10 +1,13 @@
 "use client"
 
 import axios from "axios";
-import { useEffect,useState } from "react";
+import { useEffect,useId,useState } from "react";
 
 const QueryTable = () => {
     const [queries, setQueries] = useState([]);
+    const [disable,setDisable] = useState(false)
+    const [name,setName]=useState("")
+    const inputId=useId()
 
     useEffect(() => {
       const fetchData = async () => {
@@ -20,10 +23,19 @@ const QueryTable = () => {
       fetchData();
     }, [queries]);
 
+    function handleChange(e){
+      setName(e.target.value)
+    }
 
-    function resolveId(id){
-      axios.put("/api/querySubmit", id)
-      console.log(id)
+    function handleResolve(id){
+      setDisable(true)
+      try{
+        axios.put("/api/querySubmit", {id:id,name:name})
+      }catch(error){
+        console.log(error)
+      }finally{
+        setDisable(false)
+      }
     }
 
   return (
@@ -59,9 +71,12 @@ const QueryTable = () => {
               <td>{query.message}</td>
               <td>{query.createdAt}</td>
               <td>{query.resolved}</td>
-              {query.resolved ==="Unresolved" && <td><button className="btn btn-primary" onClick={()=>resolveId(query.id)}>
-            Resolve
-        </button></td>}
+              {query.resolved ==="Unresolved" && <td>
+                  <input id={inputId} name="name" placeholder="Name" onChange={handleChange} className="input border-black mr-4" required/>
+                  <button className="btn btn-primary" id={inputId} disabled={disable || name === "" } onClick={()=>handleResolve(query.id)}>
+                    Resolve
+                  </button>
+                </td>}
             </tr>)}
           </tbody>
         </table>
