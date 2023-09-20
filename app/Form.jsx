@@ -16,6 +16,8 @@ const QueryForm = () => {
     employeeId: "",
     location: "",
     department: "",
+    device:'',
+    field:'',
     message: "",
     resolved:"Unresolved"
   });
@@ -40,6 +42,8 @@ const QueryForm = () => {
             employeeId: '',
             location: '',
             department: '',
+            device:'',
+            field:'',
             message: '',
             resolved:"Unresolved",
         });
@@ -142,6 +146,44 @@ const QueryForm = () => {
                 <option value='Store & Logistics'>Store & Logistics</option>
                 <option value='HR & Admin'>HR & Admin</option>
                 <option value='Finance'>Finance</option>
+                </select>
+            </div>
+        </div>
+        <div className="flex flex-row">
+            <div className="flex-col mr-4">
+                <label htmlFor="device"><span className="text-red-600">*</span>Select Device</label>
+                <select
+                onChange={handleChange}
+                value={formData.device}
+                name="device"
+                required
+                id="device"
+                className="select border-black w-full max-w-lg"
+                >
+                <option value="" disabled>Select Device</option>
+                <option value='Mumbai'>Mumbai</option>
+                <option value='Pune'>Pune</option>
+                <option value='Banglore'>Banglore</option>
+                <option value='Dehli'>Dehli</option>
+                <option value='Ahmedabad'>Ahmedabad</option>
+                <option value='Hyderabad'>Hyderabad</option>
+                </select>
+            </div>
+            <div className="flex-col">
+                <label htmlFor="field"><span className="text-red-600">*</span>Select Field</label>
+                <select
+                onChange={handleChange}
+                required
+                value={formData.field}
+                name="field"
+                placeholder={'Select Field'}
+                id="field"
+                className="select border-black w-full max-w-lg"
+                >
+                <option value="" disabled>Select Field</option>
+                <option value='Hardware'>Hardware</option>
+                <option value='Software'>Software</option>
+                <option value='ERP'>ERP</option>
                 </select>
             </div>
         </div>
