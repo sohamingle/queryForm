@@ -17,7 +17,7 @@ export default function SignInForm() {
         if(session.status==="authenticated"){
             router.push('/')
         }
-    })
+    },[session.status])
 
     const [form, setForm] = useState({
         username: '',
