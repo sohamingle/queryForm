@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import QueryForm from './Form'
 import logo from '../public/logo.png'
+import MountedClient from './mount'
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
           <Image src={logo} alt="logo" width={500} height={100} />
         </div>
         <div className='flex justify-center mr-28'>
-          <QueryForm />
+          <MountedClient/>
         </div>
       </main>
   )
