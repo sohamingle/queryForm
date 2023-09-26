@@ -49,9 +49,9 @@ export default function SignInForm() {
                     <div className="flex flex-col bg-white py-10 px-10 rounded-lg items-center gap-y-6">
                         <h2 className="text-3xl font-bold">Sign In</h2>
                         <div key={providers[0].id}>
-                            <button className="bg-white py-3 px-4  border-2 rounded-md flex items-center gap-x-2" onClick={() => signIn(providers[0].id)}>
+                            <button className="bg-white py-3 px-4  border-2 rounded-md flex items-center gap-x-2" onClick={() => signIn("google")}>
                                 <Image src={Google_Logo} alt="img" width={20} height={20} />
-                                Sign in with {providers[0].name}
+                                Sign in with Google
                             </button>
                         </div>
                         <p className="font-bold">OR</p>
