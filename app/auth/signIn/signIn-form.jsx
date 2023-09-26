@@ -23,7 +23,7 @@ export default function SignInForm() {
             router.push('/')
             console.log(session?.status)
         }
-    },[session])
+    },[session.status])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
