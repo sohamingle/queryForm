@@ -18,12 +18,6 @@ export default function SignInForm() {
         password:''
     })
 
-    useEffect(()=>{
-        if(session?.status === 'authenticated'){
-            router.push('/')
-            console.log(session?.status)
-        }
-    },[session.status])
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -49,7 +43,10 @@ export default function SignInForm() {
                     <div className="flex flex-col bg-white py-10 px-10 rounded-lg items-center gap-y-6">
                         <h2 className="text-3xl font-bold">Sign In</h2>
                         <div key={providers[0].id}>
-                            <button className="bg-white py-3 px-4  border-2 rounded-md flex items-center gap-x-2" onClick={() => signIn("google")}>
+                            <button className="bg-white py-3 px-4  border-2 rounded-md flex items-center gap-x-2" onClick={() => signIn("google",{
+            redirect:true,
+            callbackUrl:`${window.location.origin}/`
+        })}>
                                 <Image src={Google_Logo} alt="img" width={20} height={20} />
                                 Sign in with Google
                             </button>
