@@ -28,6 +28,14 @@ export const authOptions ={
   adapter:PrismaAdapter(prisma),
   pages:{
     signIn:"/auth/signIn"
+  },
+  session:{
+    stratergy:"jwt"
+  },
+  callbacks:{
+    jwt(params){
+      return params.token
+    }
   }
 }
 
