@@ -32,11 +32,6 @@ export const authOptions ={
   session:{
     stratergy:"jwt"
   },
-  callbacks:{
-    jwt(params){
-      return params.token
-    }
-  }
 }
 
 const handler = NextAuth(authOptions)
