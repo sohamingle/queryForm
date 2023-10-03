@@ -4,8 +4,8 @@ import { redirect } from "next/navigation";
 import { authOptions } from "../api/auth/[...nextauth]/route";
 
 const AdminPage= async() => {
-    const session = await getServerSession(authOptions)
-  if(!session || !session.user){
+    const session = await getServerSession()
+  if(!session){
     redirect('/auth/signIn')
   }
     return (

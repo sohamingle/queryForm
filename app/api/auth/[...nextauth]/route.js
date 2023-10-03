@@ -17,11 +17,15 @@ export const authOptions ={
         username: { label: "Username", type: "text", placeholder: "username" },
         password: { label: "Password", type: "password", placeholder:"password"}
       },
-      async authorize(credentials, req) {
-        if (credentials.username ==="admin" && credentials.password==="Root@123") {
-          return true
+      authorize: async (credentials, req) => {
+        const { username, password } = credentials;
+      
+        // Implement your authentication logic here
+        if (username === "admin" && password === "Root@123") {
+          return true;  // Credentials are valid
         }
-        return null
+      
+        return null;  // Credentials are invalid
       }
     })
   ],

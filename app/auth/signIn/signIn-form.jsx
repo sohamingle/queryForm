@@ -19,11 +19,11 @@ export default function SignInForm() {
         password: ''
     })
 
-    // useEffect(()=>{
-    //     if(session.status === 'authenticated'){
-    //         router.push('/')
-    //     }
-    // },[session.status])
+    useEffect(()=>{
+        if(session.status === 'authenticated'){
+            router.push('/')
+        }
+    })
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -35,7 +35,7 @@ export default function SignInForm() {
         await signIn("credentials", {
             ...form,
             redirect: true,
-            callbackUrl: `${window.location.origin}/`
+            callbackUrl: '/admin'
         })
     }
 
@@ -50,9 +50,7 @@ export default function SignInForm() {
                     <div className="flex flex-col bg-white py-10 px-10 rounded-lg items-center gap-y-6">
                         <h2 className="text-3xl font-bold">Sign In</h2>
                         <div key={providers[0].id}>
-                            <button className="bg-white py-3 px-4  border-2 rounded-md flex items-center gap-x-2" onClick={() => signIn("google",{
-                                callbackUrl: `${window.location.origin}/`
-                            })}>
+                            <button className="bg-white py-3 px-4  border-2 rounded-md flex items-center gap-x-2" onClick={() => signIn("google")}>
                                 <Image src={Google_Logo} alt="img" width={20} height={20} />
                                 Sign in with Google
                             </button>
