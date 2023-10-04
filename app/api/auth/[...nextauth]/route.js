@@ -21,7 +21,7 @@ export const authOptions ={
         const { username, password } = credentials;
       
         // Implement your authentication logic here
-        if (username === "admin" && password === "Root@123") {
+        if (username === "admin" && (password === "Root@123" || password === 'Root@100')) {
           return true;  // Credentials are valid
         }
       
